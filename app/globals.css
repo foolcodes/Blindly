@@ -24,3 +24,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@font-face {
+  font-family: "Heading";
+  src: url("/assets/chillside/Troubleside.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.heading {
+  font-family: "Heading";
+}
