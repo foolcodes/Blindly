@@ -1,18 +1,16 @@
 "use client";
 
-import Navbar from "./Navbar";
 import Image from "next/image";
+import Logo from "./Logo";
+import Menu from "./Menu";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 bg-[url('/gemini.png')] opacity-30"></div>
-
       {/* Navbar */}
-      <div className="absolute top-0 left-0 w-full z-30">
-        <Navbar />
-      </div>
+
+      <Logo />
+      <Menu />
 
       {/* Main content */}
       <div className="container mx-auto px-4 text-center relative z-20">

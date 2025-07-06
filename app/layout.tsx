@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { PeerProvider } from "@/providers/Peer";
+import StreamVideoProvider from "@/providers/StreamClientProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

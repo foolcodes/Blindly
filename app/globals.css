@@ -1,30 +1,5 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @font-face {
   font-family: "Heading";
   src: url("/assets/chillside/Troubleside.ttf") format("truetype");
@@ -34,4 +9,59 @@ body {
 
 .heading {
   font-family: "Heading";
+}
+
+:root {
+  --gradient-color-1: #2c0422;
+  --gradient-color-2: #50011e;
+  --gradient-color-3: #4e021e;
+  --gradient-color-4: #c00748;
+}
+
+.inverted-radius {
+  --r: 40px;
+  --s: 30px;
+  --x: 50px;
+  --y: 10px;
+  --p: 10px;
+
+  padding: var(--p);
+  border-radius: var(--r);
+
+  border-radius: var(--r);
+  --_m: /calc(2 * var(--r)) calc(2 * var(--r)) radial-gradient(#000 70%, #0000
+        72%);
+  --_g: conic-gradient(at calc(100% - var(--r)) var(--r), #0000 25%, #000 0);
+  --_d: calc(var(--s) + var(--r));
+
+  mask: calc(100% - var(--_d) - var(--x) - var(--p)) var(--p) var(--_m),
+    calc(100% - var(--p)) calc(var(--_d) + var(--y) + var(--p)) var(--_m),
+    radial-gradient(var(--s) at 100% 0, #0000 99%, #000 calc(100% + 1px))
+      calc(-1 * var(--r) - var(--x) - var(--p))
+      calc(var(--r) + var(--y) + var(--p)),
+    var(--_g) calc(-1 * var(--_d) - var(--x) - var(--p)) var(--p),
+    var(--_g) calc(0px - var(--p)) calc(var(--_d) + var(--y) + var(--p));
+  mask-repeat: no-repeat;
+}
+.inverted-radius-left {
+  --r: 40px;
+  --s: 30px;
+  --x: 30px;
+  --y: 10px;
+  --p: 10px;
+
+  padding: var(--p);
+  border-radius: var(--r);
+  --_m: /calc(2 * var(--r)) calc(2 * var(--r)) radial-gradient(#000 70%, #0000
+        72%);
+  --_g: conic-gradient(at var(--r) var(--r), #000 75%, #0000 0);
+  --_d: calc(var(--s) + var(--r));
+
+  mask: calc(var(--_d) + var(--x) + var(--p)) var(--p) var(--_m),
+    var(--p) calc(var(--_d) + var(--y) + var(--p)) var(--_m),
+    radial-gradient(var(--s) at 0% 0%, #0000 99%, #000 calc(100% + 1px))
+      calc(var(--r) + var(--x) + var(--p)) calc(var(--r) + var(--y) + var(--p)),
+    var(--_g) calc(var(--_d) + var(--x) + var(--p)) var(--p),
+    var(--_g) var(--p) calc(var(--_d) + var(--y) + var(--p));
+  mask-repeat: no-repeat;
 }
