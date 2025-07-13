@@ -35,10 +35,11 @@ export async function POST(request: NextRequest) {
     const tokenData = {
       id: user._id,
       username: user.username,
+      gender: user.gender,
     };
 
     const token = jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
-      expiresIn: "10d",
+      expiresIn: "1d",
     });
 
     const response = NextResponse.json(

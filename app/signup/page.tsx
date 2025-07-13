@@ -83,7 +83,7 @@ const Page = () => {
                   name="gender"
                   value="male"
                   checked={gender === "male"}
-                  onChange={(e) => setGender(e.target.value)}
+                  onChange={(e) => setGender("male")}
                   className="mr-2"
                 />
                 Male
@@ -94,7 +94,7 @@ const Page = () => {
                   name="gender"
                   value="female"
                   checked={gender === "female"}
-                  onChange={(e) => setGender(e.target.value)}
+                  onChange={(e) => setGender("female")}
                   className="mr-2"
                 />
                 Female
