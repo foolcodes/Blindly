@@ -26,7 +26,6 @@ const Page = () => {
         const userData = response.data;
         setUser(userData);
 
-        // Initialize socket connection
         const socketInstance = io(
           process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:3001"
         );
@@ -35,7 +34,7 @@ const Page = () => {
           console.log("Connected to socket server");
         });
 
-        socketInstance.emit("join-room", roomId, userData.id);
+        socketInstance.emit("join-room", userData.id, roomId);
 
         socketInstance.on("room-users", (users) => {
           setRoomUsers(users);
@@ -92,6 +91,7 @@ const Page = () => {
                 <div className="w-1/2 bg-gray-900 border-l border-gray-700">
                   <GameHub
                     socket={socket}
+                    socketId={socket?.id}
                     currentUser={user}
                     roomUsers={roomUsers}
                     roomId={roomId as string}
