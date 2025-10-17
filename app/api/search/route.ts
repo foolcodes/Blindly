@@ -6,7 +6,7 @@ import { getTokenFromData } from "@/lib/getDataFromToken";
 
 connectDb();
 
-export async function POST(request: NextRequest) {
+export async function GET(request: NextRequest) {
   try {
     const { id } = getTokenFromData(request);
     console.log("id", id);

@@ -9,14 +9,15 @@ const Page = () => {
   const router = useRouter();
   const client = useStreamVideoClient();
   const [callDetails, setCallDetails] = useState<Call>();
+
   useEffect(() => {
     async function startSearch() {
-      const response = await axios.post("/api/search");
-      console.log(response);
-      const roomId = response.data.roomId;
       const profile = await axios.get("/api/profile");
       const { id } = profile.data;
+      const response = await axios.get("/api/search");
+      const roomId = response.data.roomId;
       if (!id || !client) return;
+
       try {
         const call = client.call("default", roomId);
         if (!call) throw new Error("Call not found");
@@ -26,10 +27,11 @@ const Page = () => {
         router.push(`/match/${roomId}`);
       } catch (error) {}
     }
+
     startSearch();
   }, []);
 
-  return <div>Searching</div>;
+  return <div>Searching...</div>;
 };
 
 export default Page;

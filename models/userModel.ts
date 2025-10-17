@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema(
       enum: ["male", "female"],
       required: [true, "Please provide your gender"],
     },
+    socketId: {
+      type: String,
+      default: null,
+    },
   },
   { timestamps: true }
 );
